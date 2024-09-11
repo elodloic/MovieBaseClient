@@ -27248,12 +27248,14 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://moviebaseapi-a2aa3807c6ad.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.map((doc)=>{
+            const moviesFromApi = data.map((movie)=>{
                 return {
-                    id: doc._id,
-                    title: doc.Title,
-                    image: doc.ImagePath,
-                    director: doc.Director.Name
+                    id: movie._id,
+                    title: movie.Title,
+                    description: movie.Description,
+                    image: movie.ImagePath,
+                    director: movie.Director.Name,
+                    genre: movie.Genre.Name
                 };
             });
             setMovies(moviesFromApi);
@@ -27266,14 +27268,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 33,
+        lineNumber: 35,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27284,12 +27286,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 44,
+                lineNumber: 46,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 42,
+        lineNumber: 44,
         columnNumber: 5
     }, undefined);
 };
