@@ -1,52 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: "Pulp Fiction",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
-      director: "Quentin Tarantino",
-      genre: "Crime"
-    },
-    {
-      id: 2,
-      title: "Tenet",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/1/14/Tenet_movie_poster.jpg",
-      director: "Christopher Nolan",
-      genre: "Action"
-    },
-    {
-      id: 3,
-      title: "The Godfather",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/1/1c/Godfather_ver1.jpg",
-      director: "Francis Ford Coppola",
-      genre: "Crime"
-    },
-    {
-      id: 4,
-      title: "Chef",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/b/b8/Chef_2014.jpg",
-      director: "Jon Favreau",
-      genre: "Comedy"
-    },
-    {
-      id: 5,
-      title: "Titanic",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/1/18/Titanic_%281997_film%29_poster.png",
-      director: "James Cameron",
-      genre: "Drama"
-    },
-  ]);
+  const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  useEffect(() => {
+    fetch("https://moviebaseapi-a2aa3807c6ad.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.map((doc) => {
+          return {
+            id: doc._id,
+            title: doc.Title,
+            image: doc.ImagePath,
+            director: doc.Director.Name,
+          };
+        });
+
+        setMovies(moviesFromApi);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   if (selectedMovie) {
     return (
