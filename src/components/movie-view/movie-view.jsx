@@ -1,23 +1,22 @@
+import React from 'react';
+import { Card, Row, Col, Button, Container } from 'react-bootstrap';
+import './movie-view.scss';
+
 export const MovieView = ({ movie, onBackClick }) => {
-    return (
-      <div>
-        <div>
-          <span>Title: </span>
-          <span>{movie.title}</span>
-        </div>
-        <div>
-          <img src={movie.image} />
-        </div>
-        <div>
-          <span>Director: </span>
-          <span>{movie.director}</span>
-        </div>
-        <div>
-          <span>Genre: </span>
-          <span>{movie.genre}</span>
-        </div>
-        <button onClick={onBackClick}>Back</button>
-      </div>
-    );
-  };
-  
+  return (
+    <Container className="d-flex justify-content-center align-items-center vh-100">
+        <Card style={{ width: '40%' }}>
+        <Card.Img variant="top" src={movie.image } alt={movie.title} />
+        <Card.Body>
+          <Card.Title>{movie.title}</Card.Title>
+          <Card.Text>Director: {movie.director}</Card.Text>
+          <Card.Text>Genre: {movie.genre}</Card.Text>
+          <Card.Text>Description: {movie.description}</Card.Text>
+          <Button variant="secondary" onClick={onBackClick}>
+            Back
+          </Button>
+        </Card.Body>
+      </Card>
+    </Container>
+  );
+};

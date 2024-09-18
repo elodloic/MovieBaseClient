@@ -1,5 +1,7 @@
-$color: steelblue;
+//palette: https://colorhunt.co/palette/161a3031304db6bbc4f0ece5
 
-.my-flix {
-  color: $color;
-}
+$primary: #31304D;
+
+$body-bg: #161A30;
+
+@import "~bootstrap/scss/bootstrap.scss";
