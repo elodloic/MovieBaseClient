@@ -1,3 +1,25 @@
+h1 {
+  color: #f0ece5;
+}
+
+label {
+  color: #b6bbc4;
+}
+
+.form-control {
+  background-color: #e8f0fe !important;
+}
+
+p {
+  color: #b6bbc4;
+}
+
+.card {
+  color: #f0ece5;
+  background-color: #31304d;
+  border: 0;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -12008,27 +12030,5 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
-
-h1 {
-  color: #f0ece5;
-}
-
-label {
-  color: #b6bbc4;
-}
-
-.form-control {
-  background-color: #e8f0fe !important;
-}
-
-p {
-  color: #b6bbc4;
-}
-
-.card {
-  color: #f0ece5;
-  background-color: #31304d;
-  border: 0;
 }
 /*# sourceMappingURL=index.2212206d.css.map */

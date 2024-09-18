@@ -5,7 +5,7 @@ import './movie-view.scss';
 export const MovieView = ({ movie, onBackClick }) => {
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
-        <Card style={{ width: '40%' }}>
+        <Card className="bg-primary" style={{ width: '40%' }}>
         <Card.Img variant="top" src={movie.image } alt={movie.title} />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
