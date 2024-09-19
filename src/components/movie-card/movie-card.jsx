@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
   return (
     <Card className="h-100 bg-primary">
       <Card.Img variant="top" src={movie.image} alt={movie.title}/>
@@ -26,6 +26,5 @@ export const MovieCard = ({ movie, onMovieClick }) => {
       title: PropTypes.string.isRequired,
       image: PropTypes.string,
       director: PropTypes.string.isRequired,
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired,
+    }).isRequired
   };

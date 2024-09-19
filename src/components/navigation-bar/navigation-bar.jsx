@@ -1,12 +1,13 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="bg-primary mb-3 mt-2" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Books App
+          MovieBase
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
