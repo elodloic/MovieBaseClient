@@ -9,6 +9,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "./main-view.scss";
+import { ProfileView } from "../profile-view/profile-view";
+
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -115,6 +117,26 @@ export const MainView = () => {
                         </Col>
                       ))}
                     </>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : movies.length === 0 ? (
+                    <Col>The list is empty!</Col>
+                  ) : (
+                    <Col md={8}>
+                      <ProfileView
+                        user={user}
+                        token={token}
+                        onUserUpdated={(updatedUser) => setUser(updatedUser)} // Update user state
+                      />
+                    </Col>
                   )}
                 </>
               }

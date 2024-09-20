@@ -25,7 +25,7 @@ p {
   border-radius: 6px !important;
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand, .nav-link, h2 {
   color: #f0ece5 !important;
 }
 
