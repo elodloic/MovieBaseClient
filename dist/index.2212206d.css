@@ -2,12 +2,25 @@ h1 {
   color: #f0ece5;
 }
 
+.back-button {
+  margin-left: 8px;
+}
+
 label {
   color: #b6bbc4;
 }
 
 .form-control {
   background-color: #e8f0fe !important;
+}
+
+.navbar {
+  color: #f0ece5 !important;
+  border-radius: 6px !important;
+}
+
+.navbar-brand, .nav-link {
+  color: #f0ece5 !important;
 }
 
 p {
@@ -20,13 +33,12 @@ p {
   border: 0;
 }
 
-.navbar {
+h2 {
   color: #f0ece5 !important;
-  border-radius: 6px !important;
 }
 
-.navbar-brand, .nav-link, h2 {
-  color: #f0ece5 !important;
+.delete-button {
+  margin-left: 10px !important;
 }
 
 :root {

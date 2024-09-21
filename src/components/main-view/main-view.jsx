@@ -11,13 +11,16 @@ import Button from "react-bootstrap/Button";
 import "./main-view.scss";
 import { ProfileView } from "../profile-view/profile-view";
 
-
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
+
+  const favoriteMovies = movies.filter((movie) =>
+    user && user.FavoriteMovies.includes(movie.id)
+    );
 
   useEffect(() => {
     if (!token) {
@@ -79,7 +82,10 @@ export const MainView = () => {
                     <Navigate to="/" />
                   ) : (
                     <Col md={5}>
-                      <LoginView onLoggedIn={(user) => setUser(user)} />
+                      <LoginView onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }} />
                     </Col>
                   )}
                 </>
@@ -95,7 +101,7 @@ export const MainView = () => {
                     <Col>The list is empty!</Col>
                   ) : (
                     <Col md={8}>
-                      <MovieView movies={movies} />
+                      <MovieView movies={movies} setUser={setUser} />
                     </Col>
                   )}
                 </>
@@ -131,11 +137,7 @@ export const MainView = () => {
                     <Col>The list is empty!</Col>
                   ) : (
                     <Col md={8}>
-                      <ProfileView
-                        user={user}
-                        token={token}
-                        onUserUpdated={(updatedUser) => setUser(updatedUser)} // Update user state
-                      />
+                      <ProfileView user={user} movies={movies} setUser={setUser} />
                     </Col>
                   )}
                 </>
@@ -146,6 +148,4 @@ export const MainView = () => {
       </BrowserRouter>
     );
   }
-
-
 };
