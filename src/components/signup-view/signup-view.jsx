@@ -1,6 +1,7 @@
-import{ useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 import "./signup-view.scss";
 
 export const SignupView = () => {
@@ -8,6 +9,8 @@ export const SignupView = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
+  
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,13 +30,14 @@ export const SignupView = () => {
       }
     }).then((response) => {
       if (response.ok) {
-        alert("Signup successful");
-        window.location.reload();
+        alert("Signup successful! Please log in.");
+        navigate("/login");
       } else {
         alert("Signup failed");
       }
     });
   };
+
   return (
     <Form onSubmit={handleSubmit} className="mt-3 signupview">
       <Form.Group controlId="signUpFormUsername">
@@ -56,6 +60,7 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
+
       <Form.Group controlId="signUpFormEmail">
         <Form.Label>Email:</Form.Label>
         <Form.Control
@@ -65,6 +70,7 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
+
       <Form.Group controlId="signUpFormBirthday">
         <Form.Label>Birthday:</Form.Label>
         <Form.Control
@@ -74,6 +80,7 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
+
       <Button variant="primary" type="submit" className="mt-3">
         Submit
       </Button>
