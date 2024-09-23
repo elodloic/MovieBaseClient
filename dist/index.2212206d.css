@@ -6,6 +6,20 @@ h1 {
   margin-left: 8px;
 }
 
+@media (width <= 1199px) {
+  .back-button {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+@media (width >= 1200px) and (width <= 1399px) {
+  .back-button {
+    margin-top: 0;
+    margin-left: 3px;
+  }
+}
+
 label {
   color: #b6bbc4;
 }
