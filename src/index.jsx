@@ -3,7 +3,6 @@ import { MainView } from "./components/main-view/main-view";
 import Container from "react-bootstrap/Container";
 
 import "./index.scss";
-import { MainView } from './components/main-view/main-view';
 
 const App = () => {
   return (
