@@ -24,7 +24,7 @@ export const MainView = () => {
     if (!token) {
       return;
     }
-    fetch("http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/movies", {
+    fetch("https://moviebaseapi-a2aa3807c6ad.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())

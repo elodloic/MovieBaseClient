@@ -11,7 +11,7 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     fetch(
-        `http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/login?Username=${encodeURIComponent(username)}&Password=${encodeURIComponent(password)}`,
+        `https://moviebaseapi-a2aa3807c6ad.herokuapp.com/login?Username=${encodeURIComponent(username)}&Password=${encodeURIComponent(password)}`,
         {
           method: "POST",
           headers: {
