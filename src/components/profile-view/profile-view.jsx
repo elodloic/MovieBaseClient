@@ -46,7 +46,7 @@ export const ProfileView = ({ user, movies, setUser }) => {
 
   // Saving the user profile changes
   const handleSaveClick = () => {
-    fetch(`https://moviebaseapi-a2aa3807c6ad.herokuapp.com/users/${user.Username}`, {
+    fetch(`http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/users/${user.Username}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export const ProfileView = ({ user, movies, setUser }) => {
       return;
     }
 
-    fetch(`https://moviebaseapi-a2aa3807c6ad.herokuapp.com/users/${user.Username}`, {
+    fetch(`http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/users/${user.Username}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export const ProfileView = ({ user, movies, setUser }) => {
       'Are you sure you want to delete your account? This action cannot be undone.'
     );
     if (confirmDelete) {
-      fetch(`https://moviebaseapi-a2aa3807c6ad.herokuapp.com/users/${user.Username}`, {
+      fetch(`http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/users/${user.Username}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

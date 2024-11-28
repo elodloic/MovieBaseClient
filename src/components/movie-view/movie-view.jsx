@@ -23,7 +23,7 @@ export const MovieView = ({ movies, setUser }) => {
       }
       setLoading(true);
       try {
-        const response = await fetch(`https://moviebaseapi-a2aa3807c6ad.herokuapp.com/users/${username}`, {
+        const response = await fetch(`http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/users/${username}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -50,7 +50,7 @@ export const MovieView = ({ movies, setUser }) => {
     }
     try {
       const method = isFavorite ? 'DELETE' : 'POST';
-      const endpoint = `https://moviebaseapi-a2aa3807c6ad.herokuapp.com/users/${username}/movies/${movieId}`;
+      const endpoint = `http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/users/${username}/movies/${movieId}`;
 
       const response = await fetch(endpoint, {
         method: method,
@@ -64,7 +64,7 @@ export const MovieView = ({ movies, setUser }) => {
         setIsFavorite(!isFavorite);
 
         // Save updated user data to local storage
-        const userResponse = await fetch(`https://moviebaseapi-a2aa3807c6ad.herokuapp.com/users/${username}`, {
+        const userResponse = await fetch(`http://ec2-3-70-216-96.eu-central-1.compute.amazonaws.com/users/${username}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
